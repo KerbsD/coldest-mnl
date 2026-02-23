@@ -11,8 +11,11 @@ function Hero() {
     <section id="hero">
       <nav className={styles.nav}>
         <div className={styles["nav-logo"]}>
-          <a href="#">
-            <ShuffleText>COLDEST</ShuffleText>
+          <a className={styles["main-logo"]} href="#">
+            <span className={styles["logo-wrapper"]}>
+              coldest
+              <span className={styles["logo-registered"]}>®</span>
+            </span>
           </a>
         </div>
         <div className={styles["nav-items"]}>

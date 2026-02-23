@@ -110,7 +110,8 @@ function useAnimateHero() {
       .to(
         `.${styles["hero-img"]}`,
         {
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+          // clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+          y: "-50%",
           duration: 1,
           stagger: 0.1,
           ease: "hop",
