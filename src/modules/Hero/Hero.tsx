@@ -17,7 +17,7 @@ function Hero() {
         </div>
         <div className={styles["nav-items"]}>
           {navItems.map(({ href, text }) => (
-            <a href={href}>
+            <a key={text} href={href}>
               <ShuffleText>{text}</ShuffleText>
             </a>
           ))}
