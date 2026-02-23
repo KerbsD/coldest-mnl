@@ -5,10 +5,6 @@ const navItems = [
   },
   {
     href: "#",
-    text: "Showcase",
-  },
-  {
-    href: "#",
     text: "History",
   },
   {

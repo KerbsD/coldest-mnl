@@ -106,7 +106,17 @@ function useAnimateHero() {
       )
       .to(`.${styles.hero}`, {
         zIndex: -5,
-      });
+      })
+      .to(
+        `.${styles["hero-img"]}`,
+        {
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+          duration: 1,
+          stagger: 0.1,
+          ease: "hop",
+        },
+        "-=1.9"
+      );
   }, []);
 
   return {

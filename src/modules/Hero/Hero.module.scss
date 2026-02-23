@@ -116,7 +116,7 @@
       text-transform: uppercase;
       text-align: center;
       font-size: 10vw;
-      line-height: 0.80;
+      line-height: 0.8;
       letter-spacing: -5px;
     }
 
@@ -154,6 +154,14 @@
 
       .img {
         width: 20vw;
+      }
+    }
+
+    .hero-header {
+      h1 {
+        letter-spacing: normal;
+        line-height: 0.9;
+        font-size: 13vw;
       }
     }
   }
