@@ -4,7 +4,7 @@
   text-decoration: none;
   text-transform: uppercase;
   font-family: "DM Mono", monospace;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 500;
   line-height: 1.25;
   color: #000;
@@ -115,9 +115,8 @@
     h1 {
       text-transform: uppercase;
       text-align: center;
-      font-size: 15vw;
-      font-weight: 500;
-      line-height: 0.85;
+      font-size: 13vw;
+      line-height: 0.75;
     }
 
     .word {
@@ -131,20 +130,19 @@
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
   .nav {
     padding: 1rem;
   }
 
   .hero {
-    // ✅ Nest media query selectors properly
     .hero-overlay {
       .counter {
         right: 1rem;
         bottom: 1rem;
 
         h1 {
-          font-size: 2.5rem; // ✅ Scale down for mobile
+          font-size: 2.5rem;
         }
       }
     }
@@ -155,12 +153,6 @@
 
       .img {
         width: 20vw;
-      }
-    }
-
-    .hero-header {
-      h1 {
-        font-size: 20vw; // ✅ Optional: adjust for mobile
       }
     }
   }

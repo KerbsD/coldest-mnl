@@ -9,10 +9,10 @@ function useAnimateHero() {
   const counter = { value: 0 };
 
   useGSAP(() => {
-    let split = new SplitText(".hero-header h1", {
+    let split = new SplitText(`.${styles["hero-header"]} h1`, {
       type: "words",
       mask: "words",
-      wordsClass: "word",
+      wordsClass: styles["word"],
     });
 
     const counterTl = gsap.timeline({ delay: 0.5 });
@@ -76,7 +76,7 @@ function useAnimateHero() {
           duration: 1,
           ease: "hop",
         },
-        "<",
+        "<"
       )
       .to(`.${styles.img}:not(.${styles["hero-img"]})`, {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
@@ -85,7 +85,7 @@ function useAnimateHero() {
         ease: "hop",
       })
       .to(`.${styles["hero-img"]}`, {
-        scale: 2,
+        scale: 2.5,
         duration: 1,
         ease: "hop",
       })
@@ -102,8 +102,11 @@ function useAnimateHero() {
           stagger: 0.1,
           ease: "power3.out",
         },
-        "-=0.5",
-      );
+        "-=0.5"
+      )
+      .to(`.${styles.hero}`, {
+        zIndex: -5,
+      });
   }, []);
 
   return {
