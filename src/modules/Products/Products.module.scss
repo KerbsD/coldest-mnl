@@ -1,6 +1,15 @@
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("/fonts/HelveticaNeueBold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 .products-section {
   background-color: var(--dark);
   color: var(--light);
+  font-family: "Helvetica Neue", sans-serif;
 
   img {
     width: 100%;
@@ -55,7 +64,7 @@
 
     .project-img {
       width: 100%;
-    //   aspect-ratio: 9/16;
+      //   aspect-ratio: 9/16;
       opacity: 0.5;
       transition: all 0.3s ease;
       overflow: hidden;

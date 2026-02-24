@@ -13,8 +13,6 @@ function useAnimateProducts() {
   const projectNamesRef = useRef<(HTMLParagraphElement | null)[]>([]);
   const projectNamesContainerRef = useRef<HTMLDivElement>(null);
 
-  const totalProjectCount = 5;
-
   useGSAP(() => {
     const spotlightSection = spotlightRef.current;
     const projectIndex = projectIndexRef.current;
@@ -23,6 +21,8 @@ function useAnimateProducts() {
     const projectImgs = projectImgsRef.current;
     const projectNames = projectNamesRef.current;
 
+    const totalProjectCount = projectImgs.length;
+    
     if (
       !spotlightSection ||
       !projectIndex ||
