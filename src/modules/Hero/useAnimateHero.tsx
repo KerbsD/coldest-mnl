@@ -85,7 +85,7 @@ function useAnimateHero() {
         ease: "hop",
       })
       .to(`.${styles["hero-img"]}`, {
-        scale: 2.5,
+        scale: 2,
         duration: 1,
         ease: "hop",
       })

@@ -56,9 +56,6 @@ function Products() {
           ))}
         </div>
       </div>
-      <div className={styles["outro"]}>
-        <p>End of Showcase</p>
-      </div>
     </section>
   );
 }
