@@ -6,15 +6,15 @@ import useAnimateHistory from "./useAnimateHistory";
 const historyItems = [
   {
     text: "Coldest was founded in 2020 by Carl Dioneda, a visionary, leader, and eager individual based in Antipolo City, Rizal.",
-    layout: "topLeft",
+    position: "topLeft",
   },
   {
     text: "Started as reseller for off-brand clothing and by early 2022, Coldest transition on creating original pieces",
-    layout: "middleRight",
+    position: "middleRight",
   },
   {
-    text: "Today Coldest was widely popular and worn by many including local artist such as Gelo Buensa, Uncle Dags and many more.",
-    layout: "bottomLeft",
+    text: "Today, Coldest was widely popular and worn by many including local artist such as Gelo Buensa, Uncle Dags and many more.",
+    position: "bottomLeft",
   },
 ];
 
@@ -26,7 +26,7 @@ function splitWords(text: string) {
   ));
 }
 
-export default function History() {
+function History() {
   const { containerRef, itemRefs } = useAnimateHistory();
 
   return (
@@ -38,7 +38,7 @@ export default function History() {
             ref={(el) => {
               itemRefs.current[i] = el;
             }}
-            className={`${styles.item} ${styles[item.layout]}`}
+            className={`${styles.item} ${styles[item.position]}`}
           >
             <p className={styles.text}>{splitWords(item.text)}</p>
           </div>
@@ -47,3 +47,5 @@ export default function History() {
     </section>
   );
 }
+
+export default History;

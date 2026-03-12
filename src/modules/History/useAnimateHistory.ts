@@ -23,16 +23,17 @@ function useAnimateHistory() {
           end: "+=140%",
           pin: true,
           pinSpacing: true,
+          scrub: 1,
           toggleActions: "play none none reverse",
         },
       });
 
       items.forEach((itemEl, index) => {
         const words = itemEl.querySelectorAll(`.${styles.word}`);
-        tl.to(
+        tl.from(
           words,
           {
-            opacity: 1,
+            opacity: 0,
             y: 0,
             stagger: 0.06,
             duration: 0.4,
