@@ -1,6 +1,7 @@
 import Hero from "@/modules/Hero/Hero";
 import Products from "@/modules/Products/Products";
 import History from "@/modules/History/History";
+import Connect from "@/modules/Connect/Connect";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <Products />
       <History />
+      <Connect />
     </>
   );
 }

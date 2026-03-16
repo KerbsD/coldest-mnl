@@ -1,0 +1,205 @@
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("/fonts/HelveticaNeueBlack.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+.connect {
+  background-image: url("/connect-bg.jpg");
+  background-size: cover;
+  background-position: center 90%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100dvh;
+  position: relative;
+  font-family: "Helvetica Neue", sans-serif;
+  overflow: hidden;
+
+  .be-member-btn {
+    display: flex;
+    gap: 30px;
+    align-items: end;
+
+    h5 {
+      font-size: 70px;
+      letter-spacing: -3px;
+      color: var(--light);
+      padding: 50px 0 0 40px;
+    }
+
+    a {
+      font-size: 20px;
+      border-radius: 3px;
+      background-color: var(--light);
+      text-decoration: none;
+      color: #000;
+      padding: 5px 10px;
+      text-align: right;
+      bottom: 0;
+      transform: translateY(-12px);
+    }
+  }
+
+  &-content {
+    background: #000;
+    position: absolute;
+    height: 40dvh;
+    min-height: 260px;
+    width: 100%;
+    bottom: 0;
+    color: var(--light);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px 24px 0;
+
+    .connect-content-main {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      height: 100%;
+      gap: 40px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+
+      &-name {
+        font-size: clamp(72px, 6vw, 130px);
+        font-weight: 900;
+        letter-spacing: -5px;
+        text-transform: lowercase;
+        line-height: 0.9;
+      }
+
+      &-mark {
+        font-size: clamp(32px, 2.4vw, 54px);
+        transform: translateY(clamp(6px, 0.8vw, 12px));
+      }
+    }
+
+    .social-columns {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      gap: 16px 42px;
+      text-align: right;
+      font-size: clamp(18px, 1.8vw, 30px);
+      letter-spacing: -1px;
+      align-items: center;
+
+      a {
+        color: var(--light);
+        text-decoration: none;
+        position: relative;
+        padding-right: 2px;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: auto;
+      width: 100%;
+      display: flex;
+      padding: 12px 0;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 16px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+
+      span {
+        font: 100px;
+      }
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .connect {
+    background-position: center 300%;
+    .be-member-btn {
+      gap: 50px;
+
+      h5 {
+        font-size: 40px;
+      }
+
+      a {
+        font-size: 12px;
+        padding: 2.5px 5px;
+        transform: translateY(-9px);
+      }
+    }
+
+    &-content {
+      padding: 24px 18px 18px;
+      height: 45dvh;
+
+      .connect-content-main {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+
+      .social-columns {
+        grid-template-columns: repeat(2, auto);
+        justify-content: center;
+        text-align: center;
+        gap: 10px 44px;
+        font-size: 14px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) and (min-width: 426px) {
+  .connect {
+    .be-member-btn {
+      h5 {
+        font-size: 54px;
+        padding: 44px 0 0 32px;
+      }
+    }
+
+    &-content {
+      height: 42dvh;
+
+      .connect-content-main {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        // gap: 22px;
+
+        .social-columns {
+          grid-template-columns: repeat(2, auto);
+          justify-content: center;
+          // text-align: center;
+          // gap: 12px 34px;
+        }
+      }
+
+      .footer-bottom {
+        font-size: 12px;
+      }
+    }
+  }
+}
