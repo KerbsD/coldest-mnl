@@ -1,6 +1,7 @@
 import { imageItems } from "@/constants/hero";
 import styles from "./Products.module.scss";
 import useAnimateProducts from "./useAnimateProducts";
+import useAnimateProductShocase from "./useAnimateProductShocase";
 
 function Products() {
   const {
@@ -12,10 +13,27 @@ function Products() {
     projectNamesContainerRef,
   } = useAnimateProducts();
 
+  const { topRef, bottomRef } = useAnimateProductShocase();
+
   return (
     <section id="products-section" className={styles["products-section"]}>
       <div className={styles["intro"]}>
-        <p>Products Showcase</p>
+        {["products", "showcase"].map((word, i) => (
+          <div style={{ overflow: "hidden" }} key={word}>
+            <div
+              ref={i === 0 ? topRef : bottomRef}
+              style={{ display: "flex", width: "max-content" }}
+            >
+              {Array(6)
+                .fill(word)
+                .map((w, j) => (
+                  <span key={j} className={styles.marqueeWord}>
+                    {w}
+                  </span>
+                ))}
+            </div>
+          </div>
+        ))}
       </div>
       <div ref={spotlightRef} className={styles["spotlight"]}>
         <div className={styles["project-index"]}>
