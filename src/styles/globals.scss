@@ -13,4 +13,10 @@
 
 body {
   font-family: "DM sans", sans-serif;
+  overflow-y: scroll; // keeps scroll behavior
+  scrollbar-width: none; // Firefox
+
+  &::-webkit-scrollbar {
+    display: none; // Chrome, Safari, Edge
+  }
 }
