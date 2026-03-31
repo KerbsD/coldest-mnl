@@ -60,12 +60,19 @@
     display: inline-block;
     text-transform: uppercase;
     white-space: nowrap;
-    font-size: clamp(3rem, 8vw, 8rem);
+    font-size: clamp(3rem, 8vw, 50rem);
     font-weight: 900;
     line-height: 0.85;
     color: var(--light);
     letter-spacing: -0.04em;
     will-change: transform;
+
+    &:not(:last-child)::after {
+      content: "+";
+      display: inline-block;
+      margin: 0 0.25em;
+      transform: translateY(-10%);
+    }
   }
 
   .project-images {

@@ -27,9 +27,6 @@ function useAnimateHero() {
     const overlayTextTl = gsap.timeline({ delay: 0.75 });
     const revealTl = gsap.timeline({
       delay: 0.5,
-      onComplete: () => {
-        setAnimationComplete();
-      },
     });
 
     counterTl.to(counter, {
@@ -106,6 +103,9 @@ function useAnimateHero() {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
         duration: 1,
         ease: "hop",
+      })
+      .call(() => {
+        setAnimationComplete();
       })
       .to(
         `.${styles["hero-header"]} h1 .${styles["word"]}`,
