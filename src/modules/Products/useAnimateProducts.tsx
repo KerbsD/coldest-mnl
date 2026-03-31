@@ -1,8 +1,9 @@
-import { useRef } from "react";
 import gsap from "gsap";
+import Lenis from "lenis";
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
-import Lenis from "lenis";
+
 import styles from "./Products.module.scss";
 
 function useAnimateProducts() {
@@ -22,7 +23,7 @@ function useAnimateProducts() {
     const projectNames = projectNamesRef.current;
 
     const totalProjectCount = projectImgs.length;
-    
+
     if (
       !spotlightSection ||
       !projectIndex ||
@@ -41,7 +42,7 @@ function useAnimateProducts() {
 
     const spotlightSectionHeight = spotlightSection.offsetHeight;
     const spotlightSectionPadding = parseFloat(
-      getComputedStyle(spotlightSection).paddingTop
+      getComputedStyle(spotlightSection).paddingTop,
     );
     const projectIndexHeight = projectIndex.offsetHeight;
     const containerHeight = projectNamesContainer.offsetHeight;
@@ -67,12 +68,12 @@ function useAnimateProducts() {
 
         const currentIndex = Math.min(
           Math.floor(progress * totalProjectCount) * 1 + 1,
-          totalProjectCount
+          totalProjectCount,
         );
 
         projectIndex.textContent = `${String(currentIndex).padStart(
           2,
-          "0"
+          "0",
         )}/${String(totalProjectCount).padStart(2, "0")}`;
 
         gsap.set(projectIndex, {
@@ -111,8 +112,8 @@ function useAnimateProducts() {
             0,
             Math.min(
               1,
-              (progress - startProgress) / (endProgress - startProgress)
-            )
+              (progress - startProgress) / (endProgress - startProgress),
+            ),
           );
 
           gsap.set(p, {

@@ -2,11 +2,19 @@ import gsap from "gsap";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/all";
+import { useMediaQuery } from "react-responsive";
+import { useLoadingStore } from "@/store/isLoadingStore";
+
 import styles from "./Hero.module.scss";
 
 function useAnimateHero() {
   const counterRef = useRef<HTMLHeadingElement>(null);
   const counter = { value: 0 };
+  const setAnimationComplete = useLoadingStore(
+    (state) => state.setAnimationComplete,
+  );
+
+  const isMobile = useMediaQuery({ query: "(max-width: 425px)" });
 
   useGSAP(() => {
     let split = new SplitText(`.${styles["hero-header"]} h1`, {
@@ -17,7 +25,9 @@ function useAnimateHero() {
 
     const counterTl = gsap.timeline({ delay: 0.5 });
     const overlayTextTl = gsap.timeline({ delay: 0.75 });
-    const revealTl = gsap.timeline({ delay: 0.5 });
+    const revealTl = gsap.timeline({
+      delay: 0.5,
+    });
 
     counterTl.to(counter, {
       value: 100,
@@ -76,7 +86,7 @@ function useAnimateHero() {
           duration: 1,
           ease: "hop",
         },
-        "<"
+        "<",
       )
       .to(`.${styles.img}:not(.${styles["hero-img"]})`, {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
@@ -85,7 +95,7 @@ function useAnimateHero() {
         ease: "hop",
       })
       .to(`.${styles["hero-img"]}`, {
-        scale: 2,
+        scale: isMobile ? 4 : 2,
         duration: 1,
         ease: "hop",
       })
@@ -93,6 +103,9 @@ function useAnimateHero() {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
         duration: 1,
         ease: "hop",
+      })
+      .call(() => {
+        setAnimationComplete();
       })
       .to(
         `.${styles["hero-header"]} h1 .${styles["word"]}`,
@@ -102,7 +115,7 @@ function useAnimateHero() {
           stagger: 0.1,
           ease: "power3.out",
         },
-        "-=0.5"
+        "-=0.5",
       )
       .to(`.${styles.hero}`, {
         zIndex: -5,
@@ -110,13 +123,12 @@ function useAnimateHero() {
       .to(
         `.${styles["hero-img"]}`,
         {
-          // clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-          y: "-50%",
+          y: "-45%",
           duration: 1,
           stagger: 0.1,
           ease: "hop",
         },
-        "-=1.9"
+        "-=1.9",
       );
   }, []);
 
