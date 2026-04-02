@@ -22,9 +22,9 @@ function useAnimateHistory() {
           start: "top top",
           end: "+=140%",
           pin: true,
-          pinSpacing: true,
+          // pinSpacing: true,
           scrub: 1,
-          toggleActions: "play none none reverse",
+          // toggleActions: "play none none reverse",
         },
       });
 

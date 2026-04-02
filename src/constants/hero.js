@@ -1,14 +1,14 @@
 const navItems = [
   {
-    href: "#",
+    href: "#products-section",
     text: "Products",
   },
   {
-    href: "#",
+    href: "#history-section",
     text: "History",
   },
   {
-    href: "#",
+    href: "#connect-section",
     text: "Connect",
   },
 ];

@@ -30,7 +30,7 @@ function History() {
   const { containerRef, itemRefs } = useAnimateHistory();
 
   return (
-    <section ref={containerRef} className={styles.history}>
+    <section id="history-section" ref={containerRef} className={styles.history}>
       <div className={styles.stage}>
         {historyItems.map((item, i) => (
           <div

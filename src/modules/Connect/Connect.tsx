@@ -2,7 +2,7 @@ import styles from "./Connect.module.scss";
 
 function Connect() {
   return (
-    <section className={styles["connect"]}>
+    <section id="connect-section" className={styles["connect"]}>
       <div className={styles["be-member-btn"]}>
         <h5>Be a member</h5>
         <a href="#" className={styles["register-btn"]}>
