@@ -24,7 +24,7 @@
   min-height: clamp(320px, 58dvh, 720px);
   background-image: url("/connect-bg.jpg");
   background-size: cover;
-  background-position: center 35%;
+  background-position: center 70%;
   background-repeat: no-repeat;
   position: relative;
 }
@@ -59,8 +59,9 @@
   background: var(--connect-white);
   text-decoration: none;
   border-radius: 0;
-  transform: translateY(-4px);
+  transform: translateY(-10px);
   white-space: nowrap;
+  border-radius: 6px;
 
   &:hover {
     opacity: 0.92;
@@ -71,8 +72,7 @@
   flex-shrink: 0;
   background: var(--connect-black);
   color: var(--connect-white);
-  padding: clamp(40px, 5vw, 72px) clamp(28px, 6vw, 100px)
-    clamp(32px, 4vw, 72px);
+  padding: clamp(40px, 5vw, 72px) clamp(28px, 6vw, 100px) clamp(32px, 4vw, 72px);
 }
 
 .footer-inner {
@@ -142,9 +142,10 @@
   color: var(--connect-white);
   line-height: 0;
 
-  svg {
+  img {
     width: clamp(22px, 2.6vw, 28px);
     height: clamp(22px, 2.6vw, 28px);
+    filter: invert(1);
   }
 
   &:hover {
