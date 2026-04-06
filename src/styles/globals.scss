@@ -9,6 +9,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  cursor: crosshair;
 }
 
 body {
@@ -29,7 +30,7 @@ html {
   position: fixed;
   width: 6px;
   height: 6px;
-  background: #c8f5e0;
+  background: #1aa9eb;
   border-radius: 50%;
   pointer-events: none;
   z-index: 10000;

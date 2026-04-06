@@ -51,21 +51,12 @@
     text-transform: none;
     font-size: 1.5rem;
     font-weight: 900;
+    letter-spacing: -0.6px;
   }
 
   .logo-wrapper {
     position: relative;
     display: inline-block;
-  }
-
-  .logo-registered {
-    position: absolute;
-    top: 4;
-    right: -1;
-    transform: translateX(100%);
-    font-size: 0.7em;
-    line-height: 1;
-    font-weight: 900;
   }
 
   a {

@@ -14,7 +14,7 @@ function Hero() {
           <a className={styles["main-logo"]} href="#">
             <span className={styles["logo-wrapper"]}>
               coldest
-              <span className={styles["logo-registered"]}>®</span>
+               <span>®</span>
             </span>
           </a>
         </div>

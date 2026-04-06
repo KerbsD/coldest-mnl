@@ -29,7 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <div ref={cursorRef} className="app-cursor-dot" />
+      <span ref={cursorRef} className="app-cursor-dot" />
       <Component {...pageProps} />
     </>
   );

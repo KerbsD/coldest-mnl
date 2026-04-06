@@ -83,16 +83,12 @@ function useAnimateRegister() {
   return {
     cursorRef,
     email,
-    submitted,
     eyebrowRef,
     headlineRef,
     subRef,
-    formRef,
-    successRef,
     floatT1Ref,
     floatT2Ref,
     cornerRef,
-    setEmail,
     setSubmitted,
   };
 }
