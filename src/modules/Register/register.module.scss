@@ -1,0 +1,334 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap");
+
+// ── Variables ──────────────────────────────────────────────
+$bg: #0a0a0a;
+$cream: #f0ede6;
+$mint: #c8f5e0;
+$mint-dark: #a8edcc;
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("/fonts/HelveticaNeueBlack.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+// ── Root ───────────────────────────────────────────────────
+.root {
+  background: $bg;
+  color: $cream;
+  font-family: "Helvetica Neue", "Inter", system-ui, sans-serif;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  cursor: crosshair;
+}
+
+// ── Background layers ──────────────────────────────────────
+.noise {
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+.gridLines {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba($cream, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba($cream, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 1;
+}
+
+.iceBar {
+  position: fixed;
+  right: 0;
+  top: 80px;
+  bottom: 40px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba($mint, 0.3),
+    transparent
+  );
+  z-index: 5;
+}
+
+// ── Nav ────────────────────────────────────────────────────
+.nav {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 40px;
+  border-bottom: 1px solid rgba($cream, 0.08);
+}
+
+.logo {
+  font-family: "Helvetica Neue", "Inter", system-ui, sans-serif;
+  font-size: 22px;
+  letter-spacing: -0.6px;
+
+  a {
+    text-decoration: none;
+    color: $cream;
+  }
+}
+
+.navTag {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: rgba($cream, 0.35);
+  text-transform: uppercase;
+}
+
+// ── Main ───────────────────────────────────────────────────
+.main {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 40px;
+  height: calc(100vh - 80px - 40px);
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  opacity: 0; // GSAP animates this
+}
+
+.headline {
+  font-family: "Helvetica Neue", "Inter", system-ui, sans-serif;
+  font-size: clamp(72px, 12vw, 110px);
+  line-height: 0.9;
+  letter-spacing: -3px;
+  color: $cream;
+  opacity: 0; // GSAP animates this;
+}
+
+.outline {
+  -webkit-text-stroke: 1px rgba($cream, 0.25);
+  color: transparent;
+  display: block;
+}
+
+.sub {
+  margin-top: 28px;
+  font-size: 11px;
+  line-height: 1.8;
+  color: rgba($cream, 0.45);
+  max-width: 320px;
+  opacity: 0; // GSAP animates this
+}
+
+// ── Notify form ────────────────────────────────────────────
+.notifyForm {
+  margin-top: 36px;
+  display: flex;
+  opacity: 0; // GSAP animates this
+
+  input {
+    background: rgba($cream, 0.05);
+    border: 1px solid rgba($cream, 0.15);
+    border-right: none;
+    color: $cream;
+    font-family: "Space Mono", monospace;
+    font-size: 11px;
+    padding: 12px 16px;
+    outline: none;
+    width: 220px;
+    transition: border-color 0.2s;
+
+    &::placeholder {
+      color: rgba($cream, 0.25);
+    }
+    &:focus {
+      border-color: rgba($mint, 0.4);
+    }
+  }
+
+  button {
+    background: $mint;
+    border: none;
+    color: $bg;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition:
+      background 0.2s,
+      transform 0.1s;
+    white-space: nowrap;
+
+    &:hover {
+      background: $mint-dark;
+    }
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}
+
+.successMsg {
+  margin-top: 36px;
+  font-size: 11px;
+  color: $mint;
+  letter-spacing: 0.1em;
+  opacity: 0; // GSAP animates this
+}
+
+// ── Float tags ─────────────────────────────────────────────
+.floatTag {
+  position: absolute;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: rgba($cream, 0.2);
+  text-transform: uppercase;
+  opacity: 0; // GSAP animates this
+
+  &.t1 {
+    left: 40px;
+    bottom: 80px;
+  }
+  &.t2 {
+    right: 220px;
+    top: 100px;
+  }
+}
+
+// ── Corner deco ────────────────────────────────────────────
+.cornerDeco {
+  position: fixed;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  opacity: 0; // GSAP animates this
+}
+
+.rotatingText {
+  width: 130px;
+  height: 130px;
+  animation: spin 18s linear infinite;
+}
+
+.centerCross {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    background: $mint;
+  }
+
+  &::before {
+    width: 1px;
+    height: 16px;
+    left: 7px;
+    top: 0;
+  }
+  &::after {
+    width: 16px;
+    height: 1px;
+    left: 0;
+    top: 7px;
+  }
+}
+
+// ── Countdown ──────────────────────────────────────────────
+.countDown {
+  position: fixed;
+  right: 40px;
+  bottom: 60px;
+  z-index: 10;
+  text-align: right;
+  opacity: 0; // GSAP animates this
+}
+
+.countLabel {
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  color: rgba($cream, 0.25);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.countDigits {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 26px;
+  letter-spacing: 0.1em;
+  color: rgba($cream, 0.5);
+
+  span {
+    color: $mint;
+  }
+}
+
+// ── Ticker ─────────────────────────────────────────────────
+.ticker {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  border-top: 1px solid rgba($cream, 0.08);
+  overflow: hidden;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  background: $bg;
+}
+
+.tickerTrack {
+  display: flex;
+  white-space: nowrap;
+  animation: ticker 20s linear infinite;
+}
+
+.tickerItem {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: rgba($cream, 0.2);
+  text-transform: uppercase;
+  padding: 0 32px;
+}
+
+.tickerDot {
+  color: $mint;
+  margin-right: 32px;
+}
+
+// ── Keyframes ──────────────────────────────────────────────
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
